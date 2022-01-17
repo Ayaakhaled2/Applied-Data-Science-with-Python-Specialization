@@ -1,0 +1,77 @@
+Pandas Series 	series is one of the core data structure in pandas 	
+	The items are all stored in an order and there's labels with which you can retrieve them. 	
+	The first is the special index, a lot like keys in a dictionary. While the second is your actual data	
+		
+None 	"If we create a list of strings and we have one element, a None type, 
+pandas inserts that as a None and uses the type object for the underlying array. "	
+	"So if we create a list of numbers, integers, or floats and put it in a None type,
+pandas automatically converts this into a special floating-point value
+designated as NaN which stands for Not a Number. "	
+		
+None 	.	
+NAN 	"it's important to stress that None and NaN might be used by the Data Scientist in the same way, 
+to denote missing data. 
+But that underneath, these are not represented by pandas in the same way. 
+NaN is not equivalent to None and when we try the equality tests, the result is false"	
+		
+isnan( ) 	np.isnan(np.nan)	
+	return true 	
+index 	"if you create a serires with a list of label and then you tried to access label that not exits 
+it will return a nan values for this index "	
+code example	"adict = {""Grade1"" : 10 , ""Grade2"": 12 , ""Grade3"" : 14 , ""Grade4"" : 20}
+s = pd.Series(adict, index = [""Grade1"" , ""Grade2"" , ""Grade5""])
+
+Grade1    10.0
+Grade2    12.0
+Grade5     NaN
+dtype: float64
+"	
+		
+Index operator 		
+loc 	 To query by the index label, you can use the loc attribute.	s[label_idx]
+	"The .loc attribute lets you not only modify data in place, 
+but also add new data as well. If the value you passed in as the index doesn't exist,
+ then a new entry is created.
+
+x['new_idx""] = val #will be added to the series "	
+iloc 	query by numeric location, starting at 0, use the iloc attribute	s[idx_num]
+	 that mixed types for data values or index labels are no problem for Pandas.	
+"So keep in mind that iloc and loc are not methods, they are attributes, 
+so you don't use parentheses to query them, but square brackets instead, 
+and this is called the indexing operator. In Python this calls get or set for an
+ item depending on the context of its use. "		
+"Pandas tries to make our code a bit more readable and provides a sort of smart syntax using the indexing operator directly
+ on the series itself. For instance, if you pass in an integer parameter, the operator will behave as if you want to query via the Iloc attribute"		
+s[label]	"
+
+
+but if you index already is alist of numbers pandas will not be able to determine if you are using 
+the idx label or position 
+so using loc and ilco is better "	
+s[n]		
+		
+Vectorization 	the ability of the omputer to execute multipe instructions at once 	
+broadcasting 	apply the operation to every value in the series 	
+example 	"#create an array
+arr = np.arange(0,100,2)
+
+#add +2 to each item
+ser += 2
+
+ser.head()
+0 2 
+1  4
+2 6 
+
+"	
+	"what happen is :
+pandas iterate over each item in the series and increment it by 2 "	
+		
+Append 	"you can append tow serires to each other 
+but this will not change the original one but will return a new series "	
+	s = s1.append(s2) 	
+		
+index 	"the index of the series may not be unique 
+and if you tried to access it using loc or iloc it will return all the values that have this index "	
+		
+		
